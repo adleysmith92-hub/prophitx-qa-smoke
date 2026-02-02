@@ -11,6 +11,7 @@
 // Basic Page Load and Wager Placement Smoke Tests
 
 const { test, expect } = require("@playwright/test");
+const { env } = require('../../utils/env');
 
 test.describe("Place Wager - Smoke", () => {
   test.use({ storageState: "./.auth/state.json" });
@@ -86,9 +87,7 @@ test.describe("Place Wager - Smoke", () => {
 
 // Placing a Wager
 
-import { test, expect } from "@playwright/test";
-
-test("test", async ({ page }) => {
+test('recorded: place wager', async ({ page }) => {
   await page.goto("https://ss-sandbox.betprophet.co/?currency=cash");
   await page
     .locator(".flex.items-center.justify-center > span:nth-child(2)")
@@ -107,12 +106,12 @@ test("test", async ({ page }) => {
   await page.getByRole("textbox", { name: "Email" }).click();
   await page
     .getByRole("textbox", { name: "Email" })
-    .fill("o.s.aonestepaway@gmail.com");
+    .fill(env.email);
   await page.getByRole("textbox", { name: "Password" }).click();
-  await page.getByRole("textbox", { name: "Password" }).fill("Adley5292!");
+  await page.getByRole("textbox", { name: "Password" }).fill(env.password);
   await page.getByRole("button", { name: "Login" }).click();
   await page.getByRole("textbox", { name: "Enter Code" }).click();
-  await page.getByRole("textbox", { name: "Enter Code" }).fill("992429");
+  await page.getByRole("textbox", { name: "Enter Code" }).fill(process.env.PX_OTP || '992429');
   await page.getByRole("button", { name: "Proceed" }).click();
   await page.getByRole("button", { name: "Got it" }).click();
   await page
