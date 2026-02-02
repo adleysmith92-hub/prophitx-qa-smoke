@@ -1,0 +1,28 @@
+{
+  "name": "prophetx-qa-smoke",
+  "version": "1.0.0",
+  "description": "Smoke test suite for ProphetX sandbox using Playwright + TypeScript + POM",
+  "repository": {
+    "type": "git",
+    "url": "yes"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "test",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test tests/smoke",
+    "test:auth": "playwright test tests/auth",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "codegen": "playwright codegen https://ss-sandbox.betprophet.co/?currency=cash"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.1"
+  }
+}
+
