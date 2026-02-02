@@ -1,4 +1,4 @@
-# ProphieX QA Smoke Test Suite
+# ProphetX QA Smoke Test Suite
 
 Playwright + JavaScript + Page Object Model (POM) smoke test suite for the ProphetX sandbox environment.
 
